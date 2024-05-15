@@ -17,7 +17,7 @@ class Server:
         while True:
             user, addr = self.server.accept()
             print(f'connected: {user}, {addr}')
-            # self.server.listen(user)
+            user.send('connected'.encode('utf-8'))
 
 
 def main():
