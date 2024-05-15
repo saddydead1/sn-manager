@@ -5,25 +5,23 @@ port = 7072
 count_listens = 2
 
 
+class Server:
+    def __init__(self, ip, port, listens):
+        self.server = socket(
+            AF_INET, SOCK_STREAM
+        )
+        self.server.bind((ip, port))
+        self.server.listen(listens)
+
+    def start_server(self):
+        while True:
+            user, addr = self.server.accept()
+            print(f'connected: {user}, {addr}')
+            # self.server.listen(user)
+
+
 def main():
-
-    server = socket(
-        AF_INET, SOCK_STREAM
-    )
-    server.bind(
-        (serv_addr, port)
-    )
-    server.listen(count_listens)
-
-    print('SONOMA MANAGER STARTED')
-
-    try:
-        user, addr = server.accept()
-
-        print(f'CONNECTED: {user}, {addr}')
-
-    except Exception as e:
-        print(f'ERROR: {e}')
+    Server(serv_addr, port, count_listens).start_server()
 
 
 if __name__ == "__main__":
