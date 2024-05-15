@@ -1,4 +1,10 @@
-FROM ubuntu:latest
-LABEL authors="saddy"
+FROM python:3.12.2-bookworm
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+
+COPY ./server /app
+COPY ./requirements.txt /app
+
+RUN pip install -r /app/requirements.txt
+
+CMD ["python", "main.py"]
