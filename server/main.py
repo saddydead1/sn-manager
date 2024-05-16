@@ -1,16 +1,14 @@
 import eventlet
 import socketio
 
-addr = 'localhost'
+addr = '127.0.0.1'
 port = 7072
 
 
 class Server:
     def __init__(self):
         self.sio = socketio.Server()
-        self.app = socketio.WSGIApp(self.sio, static_files={
-            '/': {'content_type': 'text/html', 'filename': 'index.html'}
-        })
+        self.app = socketio.WSGIApp(self.sio)
 
     def start_server(self):
         eventlet.wsgi.server(eventlet.listen((addr, port)), self.app)
