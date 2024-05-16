@@ -6,6 +6,5 @@ README.md
 /client/Packages
 /client/xcuserdata/
 /client/DerivedData/
-/client/.swiftpm/configuration/registries.json
-/client/.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+/client/.swiftpm
 /client/.netrc
