@@ -8,3 +8,4 @@ README.md
 /client/DerivedData/
 /client/.swiftpm
 /client/.netrc
+/server/database/users.db
