@@ -1,4 +1,5 @@
 import uvicorn
+import containers
 from fastapi import FastAPI, Request, Body
 from fastapi.responses import RedirectResponse, FileResponse
 
@@ -15,6 +16,10 @@ class Server:
     @app.get("/")
     def doc(self: Request):
         return RedirectResponse(f'{self.url}docs')
+
+    @app.get("/list_containers")
+    def list_cont(self: Request):
+        return str(containers.containers_list())
 
     def start_server(self):
         uvicorn.run(app, port=self.port, proxy_headers=True, host=self.addr)
