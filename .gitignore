@@ -2,10 +2,10 @@
 /.venv
 README.md
 .DS_Store
-/client/.build
-/client/Packages
-/client/xcuserdata/
-/client/DerivedData/
-/client/.swiftpm
-/client/.netrc
+/swift-client/.build
+/swift-client/Packages
+/swift-client/xcuserdata/
+/swift-client/DerivedData/
+/swift-client/.swiftpm
+/swift-client/.netrc
 /server/database/users.db
