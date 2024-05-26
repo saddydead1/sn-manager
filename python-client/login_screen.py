@@ -1,6 +1,7 @@
 import customtkinter as ctk
 import http_client as http
 from user import User
+from main import MainWindow, LoginWindow
 
 log_in = False
 
@@ -20,17 +21,14 @@ class LoginFrame(ctk.CTkFrame):
         self.password.pack(anchor="center")
 
         self.log_button = ctk.CTkButton(self, text="Log in",
-                                        command=lambda: http.login(User(self.username.get(), self.password.get())))
+                                        command=self.login)
         self.log_button.pack(anchor="center")
 
+    def login(self):
+        result = http.is_login(User(self.username.get(), self.password.get()))
 
-def login():
+        if result:
+            log_in = True
 
-
-    log_in = True
-
-
-def logout():
-
-
-    log_in = False
+    def logout(self):
+        log_in = False
